@@ -16,7 +16,7 @@ public class AsteroidSystem : ComponentSystem
     {
         random = new Random(56);
         maxAsteroidsInGroups = 5;
-        asteroidsCountdown = 5;
+        asteroidsCountdown = maxAsteroidsInGroups;
         
     }
     protected override void OnUpdate()
@@ -35,7 +35,7 @@ public class AsteroidSystem : ComponentSystem
                 if(asteroidsCountdown == 0)
                 {
                     spawnerTime = 15f;
-                    asteroidsCountdown = 5;
+                    asteroidsCountdown = maxAsteroidsInGroups;
                 }
 
                 EntityManager.SetComponentData(spawnedAsteroid, new Translation { Value = new float3((random.NextBool())?random.NextFloat(6f, 9f): random.NextFloat(-6f, -9f),

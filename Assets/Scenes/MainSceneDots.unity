@@ -189,8 +189,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 294054533}
-  - component: {fileID: 294054532}
   - component: {fileID: 294054531}
+  - component: {fileID: 294054532}
   m_Layer: 0
   m_Name: AsteroidMngr
   m_TagString: Untagged
@@ -211,7 +211,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
-  maxAsteroids: 5
 --- !u!114 &294054532
 MonoBehaviour:
   m_ObjectHideFlags: 0
