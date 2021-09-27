@@ -27,7 +27,7 @@ public class AsteroidSystem : ComponentSystem
         {
             spawnerTime = 1.5f;
 
-            Entities.ForEach((ref PrefabEntityAsteroid prefabEntityAsteroid)=>{
+            Entities.ForEach((ref PrefabAsteroidsEntities prefabEntityAsteroid)=>{
 
                 Entity spawnedAsteroid = EntityManager.Instantiate(prefabEntityAsteroid.asteroidPrefab);
                 asteroidsCountdown--;

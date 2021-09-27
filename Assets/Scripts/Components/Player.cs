@@ -9,5 +9,6 @@ public struct Player : IComponentData
     
     public float newX, newY;
     public float aceleration;
+    public Entity explosionPrefab;
 
 }

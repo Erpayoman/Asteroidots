@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 294054531}
   - component: {fileID: 294054532}
   m_Layer: 0
-  m_Name: AsteroidMngr
+  m_Name: AsteroidManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,6 +338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1719378597, guid: 10db6508d4da4f64298841eba30ef2c1, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 100000, guid: f881607407b15cc46b24d6bda799037a, type: 3}
     - target: {fileID: 7165778519726938882, guid: 10db6508d4da4f64298841eba30ef2c1, type: 3}
       propertyPath: value
       value: 10
