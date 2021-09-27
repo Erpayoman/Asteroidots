@@ -70,7 +70,7 @@ public class PlayerSystem : SystemBase
 
         }).Schedule();
 
-        Entities.ForEach((ref Player player, ref Kill kill,in Translation translation) =>
+        Entities.ForEach((in Player player, in Kill kill,in Translation translation) =>
         {
             Entity explosion = EntityManager.Instantiate(player.explosionPrefab);
             EntityManager.SetComponentData(explosion, new Translation { Value = translation.Value });
