@@ -16,8 +16,8 @@ public class PlayerSystem : SystemBase
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
 
-        Debug.Log("X: " + x);
-        Debug.Log("Y: " + y);
+        //Debug.Log("X: " + x);
+       // Debug.Log("Y: " + y);
 
         
 

@@ -4,8 +4,8 @@ using Unity.Entities;
 using Unity.Mathematics;
 
 [GenerateAuthoringComponent]
-public struct Health : IComponentData
+public struct Damage: IComponentData
 {
-    public float value, invicibleTimer, killTimer;
+    public float value;
     
 }

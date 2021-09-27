@@ -4,8 +4,9 @@ using Unity.Entities;
 using Unity.Mathematics;
 
 [GenerateAuthoringComponent]
-public struct Health : IComponentData
+public struct TriggerBuffer: IBufferElementData
 {
-    public float value, invicibleTimer, killTimer;
+    public Entity entity;
+    
     
 }
