@@ -14,7 +14,7 @@ public class PlayerSystem : SystemBase
         var dt = Time.DeltaTime;
 
         var x = Input.GetAxisRaw("Horizontal");
-        var y = Input.GetAxisRaw("Vertical");
+        var z = Input.GetAxisRaw("Vertical");
 
         //Debug.Log("X: " + x);
        // Debug.Log("Y: " + y);
@@ -36,9 +36,9 @@ public class PlayerSystem : SystemBase
 
             if (x < 0) player.newX = math.clamp(player.newX - (dt * player.aceleration), -5f,0f);
 
-            if (y < 0) player.newY = math.clamp(player.newY - (dt * player.aceleration), -5f, 0f );
+            if (z < 0) player.newY = math.clamp(player.newY - (dt * player.aceleration), -5f, 0f );
 
-            if (y > 0) player.newY = math.clamp(player.newY + (dt * player.aceleration), 0f, 5f);
+            if (z > 0) player.newY = math.clamp(player.newY + (dt * player.aceleration), 0f, 5f);
            
             mov.direction = new float3(player.newX, 0, player.newY);
 
