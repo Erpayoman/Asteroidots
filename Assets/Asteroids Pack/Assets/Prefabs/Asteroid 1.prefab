@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d10649cb458604aa5f313d3933f13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 100006, guid: 8b940ede2c20ec44ba870a2cdd277051, type: 3}
 --- !u!114 &4694944000922959438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,7 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 100
   invicibleTimer: 0
-  killTimer: 1
+  killTimer: 0
 --- !u!114 &5229773801342925485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c343644f60a61c46985aae20951b2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 100
+  value: 50
 --- !u!114 &-9158342933841939147
 MonoBehaviour:
   m_ObjectHideFlags: 0

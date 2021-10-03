@@ -26,7 +26,7 @@ public class AsteroidSystem : ComponentSystem
         if(spawnerTime <= 0f)
         {
             spawnerTime = 1.5f;
-
+            
             Entities.ForEach((ref PrefabAsteroidsEntities prefabEntityAsteroid)=>{
 
                 Entity spawnedAsteroid = EntityManager.Instantiate(prefabEntityAsteroid.asteroidPrefab);
@@ -49,6 +49,15 @@ public class AsteroidSystem : ComponentSystem
                 }) ;
             }) ;
         }
+
         
+        Entities.ForEach((ref Asteroid asteroid, ref Kill kill, ref Translation translation) =>
+         {
+             Entity explosion = EntityManager.Instantiate(asteroid.explosionPrefab);
+             EntityManager.SetComponentData(explosion, new Translation { Value = translation.Value });
+
+         });
+        
+
     }
 }
