@@ -6,6 +6,8 @@ using Unity.Mathematics;
 [GenerateAuthoringComponent]
 public struct Laser : IComponentData
 {
+    public float speed;
+    
     // Add fields to your component here. Remember that:
     //
     // * A component itself is for storing data and doesn't 'do' anything.

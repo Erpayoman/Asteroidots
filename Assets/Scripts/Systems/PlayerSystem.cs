@@ -43,15 +43,15 @@ public class PlayerSystem : SystemBase
             mov.direction = new float3(player.newX, 0, player.newY);
 
             //Transportation on the edge of the screen 16:9
-            if (translation.Value.x < -4.6f) 
-                translation.Value = new float3(4.6f, translation.Value.y, translation.Value.z);
-            if(translation.Value.x > 4.6f)
-                translation.Value =  new float3(-4.6f, translation.Value.y, translation.Value.z);
+            if (translation.Value.x < -6.25f) 
+                translation.Value = new float3(6.25f, translation.Value.y, translation.Value.z);
+            if(translation.Value.x > 6.25f)
+                translation.Value =  new float3(-6.25f, translation.Value.y, translation.Value.z);
 
-            if (translation.Value.z < -2.8f)
-                translation.Value =  new float3(translation.Value.x, translation.Value.y, 2.8f);
-            if (translation.Value.z > 2.8f)
-                translation.Value = new float3(translation.Value.x, translation.Value.y, -2.8f);
+            if (translation.Value.z < -3.25f)
+                translation.Value =  new float3(translation.Value.x, translation.Value.y, 3.75f);
+            if (translation.Value.z > 3.75f)
+                translation.Value = new float3(translation.Value.x, translation.Value.y, -3.25f);
 
             //Rotation base on mouse position and raycast against the background.
 

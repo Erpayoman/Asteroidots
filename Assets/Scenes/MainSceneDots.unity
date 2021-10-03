@@ -349,6 +349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab1: {fileID: 1451412942897593511, guid: a7e0385bd501c5c4694ef00672124d3d, type: 3}
+  timeDelayShoot: 0.1
+  laserSpeed: 6
 --- !u!1001 &1893921155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -480,6 +482,14 @@ PrefabInstance:
     - target: {fileID: 5451771942785186372, guid: 90fced9aa8798484ab3193007b8c14dd, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451771942785186374, guid: 90fced9aa8798484ab3193007b8c14dd, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451771942785186374, guid: 90fced9aa8798484ab3193007b8c14dd, type: 3}
+      propertyPath: orthographic size
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90fced9aa8798484ab3193007b8c14dd, type: 3}
