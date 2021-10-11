@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b19b59044403a4ab0c2679bc82c68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 100
+  value: 200
   invicibleTimer: 0
   killTimer: 0
 --- !u!114 &5229773801342925485

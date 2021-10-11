@@ -5,6 +5,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 
+
 public class AsteroidSystem : ComponentSystem
 {
     private float spawnerTime;
@@ -30,6 +31,9 @@ public class AsteroidSystem : ComponentSystem
             Entities.ForEach((ref PrefabAsteroidsEntities prefabEntityAsteroid)=>{
 
                 Entity spawnedAsteroid = EntityManager.Instantiate(prefabEntityAsteroid.asteroidPrefab);
+                float scaleFactor = random.NextFloat(prefabEntityAsteroid.minScaleFactorAsteroid1, prefabEntityAsteroid.maxScaleFactorAsteroid1);
+                EntityManager.SetComponentData(spawnedAsteroid, new CompositeScale { Value = float4x4.Scale(scaleFactor) });
+
                 asteroidsCountdown--;
                 
                 if(asteroidsCountdown == 0)

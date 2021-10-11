@@ -464,6 +464,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5527333255791760172, guid: 2eac96ed33a7ef147a7a399cca99149d, type: 3}
+      propertyPath: maxScaleFactorAsteroid1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527333255791760172, guid: 2eac96ed33a7ef147a7a399cca99149d, type: 3}
+      propertyPath: minScaleFactorAsteroid1
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5527333255791760173, guid: 2eac96ed33a7ef147a7a399cca99149d, type: 3}
       propertyPath: m_Name
       value: AsteroidManager
