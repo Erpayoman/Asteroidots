@@ -36,7 +36,8 @@ public class DamageSystem : SystemBase
         var ecbSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
         var ecb = ecbSystem.CreateCommandBuffer();
 
-        Entities.ForEach((Entity e, ref Kill kill) =>
+        Entities.
+            ForEach((Entity e, ref Kill kill) =>
         {
             kill.timer -= dt;
             if (kill.timer <= 0)

@@ -465,6 +465,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5527333255791760172, guid: 2eac96ed33a7ef147a7a399cca99149d, type: 3}
+      propertyPath: asteroidPrefab1
+      value: 
+      objectReference: {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
+    - target: {fileID: 5527333255791760172, guid: 2eac96ed33a7ef147a7a399cca99149d, type: 3}
+      propertyPath: asteroidPrefab2
+      value: 
+      objectReference: {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
+    - target: {fileID: 5527333255791760172, guid: 2eac96ed33a7ef147a7a399cca99149d, type: 3}
+      propertyPath: asteroidPrefab3
+      value: 
+      objectReference: {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
+    - target: {fileID: 5527333255791760172, guid: 2eac96ed33a7ef147a7a399cca99149d, type: 3}
       propertyPath: maxScaleFactorAsteroid1
       value: 1
       objectReference: {fileID: 0}

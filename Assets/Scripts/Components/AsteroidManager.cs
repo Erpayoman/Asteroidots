@@ -6,9 +6,9 @@ using Unity.Mathematics;
 
 
 [GenerateAuthoringComponent]
-public struct PrefabAsteroidsEntities : IComponentData
+public struct AsteroidManager : IComponentData
 {
-    public Entity asteroidPrefab;
+    public Entity asteroidPrefab3;
     public float minScaleFactorAsteroid1, maxScaleFactorAsteroid1;
 
 

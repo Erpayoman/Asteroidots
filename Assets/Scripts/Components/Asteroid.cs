@@ -7,6 +7,7 @@ using Unity.Mathematics;
 public struct Asteroid : IComponentData
 {
     public Entity explosionPrefab;
-   
+    public Entity asteroidPrefab2,asteroidPrefab1;
+    public int hitStatus;
 
 }
