@@ -6,20 +6,15 @@ using Unity.Mathematics;
 using Unity.Transforms;
 
 
-public class AsteroidSystem : ComponentSystem
+public class AsteroidSystem : SystemBase
 {
     private float spawnerTime;
-    private Random random;
-    private int maxAsteroidsInGroups;
-    private int asteroidsCountdown;
-    
-    protected override void OnCreate()
-    {
-        random = new Random(56);
-        maxAsteroidsInGroups = 5;
-        asteroidsCountdown = maxAsteroidsInGroups;
+    private Random random = new Random(56);
+    private int maxAsteroidsInGroups = 5;
+    private int asteroidsCountdown = 5;   
         
-    }
+    
+    
     protected override void OnUpdate()
     {
         AsteroidSpawner();
@@ -31,7 +26,7 @@ public class AsteroidSystem : ComponentSystem
 
     private void WatchMeExplode()
     {
-        Entities.ForEach((ref Asteroid asteroid, ref Kill kill, ref Translation translation, ref CompositeScale scale) =>
+        Entities.ForEach((ref Asteroid asteroid, ref Kill kill, ref Translation translation) =>
         {
             Entity explosion = EntityManager.Instantiate(asteroid.explosionPrefab);
             EntityManager.SetComponentData(explosion, new Translation { Value = translation.Value });
@@ -45,7 +40,7 @@ public class AsteroidSystem : ComponentSystem
                     {
                         Entity asteroidPrefab2 = EntityManager.Instantiate(asteroid.asteroidPrefab2);
                         EntityManager.SetComponentData(asteroidPrefab2, new Translation { Value = translation.Value });
-                        EntityManager.SetComponentData(asteroidPrefab2, new CompositeScale { Value = scale.Value / 2 });
+                        //EntityManager.SetComponentData(asteroidPrefab2, new CompositeScale { Value = scale.Value / 2 });
                         EntityManager.SetComponentData(asteroidPrefab2, new Movable
                         {
                             speed = random.NextFloat(0.5f, 1f),
@@ -64,7 +59,7 @@ public class AsteroidSystem : ComponentSystem
                     {
                         Entity asteroidPrefab1 = EntityManager.Instantiate(asteroid.asteroidPrefab1);
                         EntityManager.SetComponentData(asteroidPrefab1, new Translation { Value = translation.Value });
-                        EntityManager.SetComponentData(asteroidPrefab1, new CompositeScale { Value = scale.Value / 2 });
+                        //EntityManager.SetComponentData(asteroidPrefab1, new CompositeScale { Value = scale.Value / 2 });
                         EntityManager.SetComponentData(asteroidPrefab1, new Movable
                         {
                             speed = random.NextFloat(0.5f, 1f),
@@ -75,7 +70,7 @@ public class AsteroidSystem : ComponentSystem
                 break;
             }
 
-        });
+        }).WithStructuralChanges().WithoutBurst().Run();
     }
 
     private void AsteroidSpawner()
@@ -90,8 +85,8 @@ public class AsteroidSystem : ComponentSystem
             {
 
                 Entity spawnedAsteroid = EntityManager.Instantiate(asteroidManager.asteroidPrefab3);
-                float scaleFactor = random.NextFloat(asteroidManager.minScaleFactorAsteroid1, asteroidManager.maxScaleFactorAsteroid1);
-                EntityManager.SetComponentData(spawnedAsteroid, new CompositeScale { Value = float4x4.Scale(scaleFactor) });
+                //float scaleFactor = random.NextFloat(asteroidManager.minScaleFactorAsteroid1, asteroidManager.maxScaleFactorAsteroid1);
+                //EntityManager.SetComponentData(spawnedAsteroid, new CompositeScale { Value = float4x4.Scale(scaleFactor) });
 
                 asteroidsCountdown--;
 
@@ -113,7 +108,7 @@ public class AsteroidSystem : ComponentSystem
                     speed = 0.1f
 
                 });
-            });
+            }).WithStructuralChanges().WithoutBurst().Run();
         }
     }
 }
