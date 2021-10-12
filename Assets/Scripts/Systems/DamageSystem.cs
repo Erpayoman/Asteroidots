@@ -31,6 +31,7 @@ public class DamageSystem : SystemBase
             health.invicibleTimer -= dt;
             if (health.value <= 0)
                 EntityManager.AddComponentData(ent, new Kill() { timer = health.killTimer });
+                
         }).WithStructuralChanges().Run();
 
         var ecbSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1509899612121139130}
   - component: {fileID: 3892765534273044472}
   - component: {fileID: 5185716644918959306}
+  - component: {fileID: 9177269948487516720}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  destroyTimer: 2
 --- !u!114 &1509899612121139130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +257,7 @@ MonoBehaviour:
     m_Template: {fileID: 0}
     m_CollisionResponse:
       m_Override: 0
-      m_Value: 0
+      m_Value: 1
     m_Friction:
       m_Override: 0
       m_Value:
@@ -361,3 +363,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bd9d978bc9c7f4e95bf516ed7eebac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9177269948487516720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451412942897593511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b36776962f362240b281ed6b17e2cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 2
