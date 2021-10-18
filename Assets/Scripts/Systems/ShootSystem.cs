@@ -9,6 +9,7 @@ using UnityEngine;
 public class ShootSystem : SystemBase
 {
     float shootTime = 0f;
+    float fxVolumen = 0.007f;
 
     protected override void OnUpdate()
     {
@@ -29,6 +30,8 @@ public class ShootSystem : SystemBase
                     EntityManager.SetComponentData(laserBeam, new Translation { Value = translation.Value });
                     EntityManager.SetComponentData(laserBeam, new Rotation { Value = rotation.Value });
                     EntityManager.SetComponentData(laserBeam, new Laser { speed = shooter.laserSpeed });
+
+                    AudioManager.instance.PlayFX("laser1",fxVolumen);
 
                 }
                 shootTime = 0f;

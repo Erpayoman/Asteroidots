@@ -7,6 +7,8 @@ using Unity.Transforms;
 
 public class DamageSystem : SystemBase
 {
+    float explosion1Volumen = 0.01f;
+    float explosion2Volumen = 0.01f;
     protected override void OnUpdate()
     {
         var dt = Time.DeltaTime;
@@ -42,9 +44,25 @@ public class DamageSystem : SystemBase
         {
             kill.timer -= dt;
             if (kill.timer <= 0)
-                ecb.DestroyEntity(e);
+            {
+                if(EntityManager.HasComponent<Asteroid>(e))
+                {
+                    AudioManager.instance.PlayFX("explosion2", explosion2Volumen);
+                }
+                if (EntityManager.HasComponent<Player>(e))
+                {
+                    
+                    AudioManager.instance.PlayFX("explosion1", explosion1Volumen);
+                }
 
-        }).Schedule();
+
+                ecb.DestroyEntity(e);
+                
+            }               
+
+
+
+        }).WithoutBurst().Run();
         ecbSystem.AddJobHandleForProducer(this.Dependency);
     }
 }
