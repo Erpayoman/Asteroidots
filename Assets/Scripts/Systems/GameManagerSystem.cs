@@ -29,7 +29,9 @@ public class GameManagerSystem : SystemBase
 
             break;
 
-            
+            case (GameManagerMono.GameState.GameOver):
+                isPlayerThere = false;
+            break;
         }
         
         

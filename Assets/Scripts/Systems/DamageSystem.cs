@@ -54,7 +54,8 @@ public class DamageSystem : SystemBase
                 if (EntityManager.HasComponent<Player>(e))
                 {                    
                     AudioManager.instance.PlayFX("explosion1", explosion1Volumen);
-                    //GameManagerMono.instance.CurrentState = GameManagerMono.GameState.GameOver;
+                    GameManagerMono.instance.CurrentState = GameManagerMono.GameState.GameOver;
+                    ScoreManager.instance.CheckHighScore();
                 }
 
 
