@@ -43,7 +43,7 @@ public class AsteroidSystem : SystemBase
                         //EntityManager.SetComponentData(asteroidPrefab2, new CompositeScale { Value = scale.Value / 2 });
                         EntityManager.SetComponentData(asteroidPrefab2, new Movable
                         {
-                            speed = random.NextFloat(0.5f, 1f),
+                            speed = random.NextFloat(2f, 3f),
                             direction = math.normalize(random.NextFloat3())
                         });
 
@@ -62,7 +62,7 @@ public class AsteroidSystem : SystemBase
                         //EntityManager.SetComponentData(asteroidPrefab1, new CompositeScale { Value = scale.Value / 2 });
                         EntityManager.SetComponentData(asteroidPrefab1, new Movable
                         {
-                            speed = random.NextFloat(0.5f, 1f),
+                            speed = random.NextFloat(2f, 4f),
                             direction = math.normalize(random.NextFloat3())
                         });
                         numberAsteroid--;
@@ -85,8 +85,7 @@ public class AsteroidSystem : SystemBase
             {
 
                 Entity spawnedAsteroid = EntityManager.Instantiate(asteroidManager.asteroidPrefab3);
-                //float scaleFactor = random.NextFloat(asteroidManager.minScaleFactorAsteroid1, asteroidManager.maxScaleFactorAsteroid1);
-                //EntityManager.SetComponentData(spawnedAsteroid, new CompositeScale { Value = float4x4.Scale(scaleFactor) });
+                
 
                 asteroidsCountdown--;
 
@@ -105,7 +104,7 @@ public class AsteroidSystem : SystemBase
                 EntityManager.SetComponentData(spawnedAsteroid, new Movable
                 {
                     direction = new float3(random.NextFloat(-5f, 5f), 1, random.NextFloat(-3f, 3f)) - EntityManager.GetComponentData<Translation>(spawnedAsteroid).Value,
-                    speed = 0.1f
+                    speed = random.NextFloat(0.1f, 0.3f)
 
                 });
             }).WithStructuralChanges().WithoutBurst().Run();

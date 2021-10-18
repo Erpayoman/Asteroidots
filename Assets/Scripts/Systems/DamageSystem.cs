@@ -45,9 +45,11 @@ public class DamageSystem : SystemBase
             kill.timer -= dt;
             if (kill.timer <= 0)
             {
-                if(EntityManager.HasComponent<Asteroid>(e))
+                if(EntityManager.HasComponent<Asteroid>(e) && EntityManager.HasComponent<Scoring>(e))
                 {
                     AudioManager.instance.PlayFX("explosion2", explosion2Volumen);
+
+                    ScoreManager.instance.AddScore(EntityManager.GetComponentData<Scoring>(e).scoreValue);
                 }
                 if (EntityManager.HasComponent<Player>(e))
                 {
