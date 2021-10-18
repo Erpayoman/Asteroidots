@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafd7cce8a7412547bef3128005fcb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
   direction:
     x: 0
     y: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MotionType: 1
-  m_Smoothing: 0
+  m_Smoothing: 1
   m_Mass: 1
   m_LinearDamping: 0.01
   m_AngularDamping: 0.05
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 50
   invicibleTimer: 0
-  killTimer: 0.5
+  killTimer: 0.1
 --- !u!114 &7165778519726938882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab1: {fileID: 1451412942897593511, guid: a7e0385bd501c5c4694ef00672124d3d, type: 3}
-  timeDelayShoot: 0.1
+  timeDelayShoot: 0.15
   laserSpeed: 6
 --- !u!114 &7410192911210380296
 MonoBehaviour:

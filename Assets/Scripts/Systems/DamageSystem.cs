@@ -52,9 +52,9 @@ public class DamageSystem : SystemBase
                     ScoreManager.instance.AddScore(EntityManager.GetComponentData<Scoring>(e).scoreValue);
                 }
                 if (EntityManager.HasComponent<Player>(e))
-                {
-                    
+                {                    
                     AudioManager.instance.PlayFX("explosion1", explosion1Volumen);
+                    //GameManagerMono.instance.CurrentState = GameManagerMono.GameState.GameOver;
                 }
 
 

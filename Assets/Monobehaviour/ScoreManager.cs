@@ -20,4 +20,9 @@ public class ScoreManager : MonoBehaviour
         currentScore += increasingScore;
         scoreText.text = currentScore.ToString();
     }
+    public void ResetScore()
+    {
+        currentScore = 0;
+        scoreText.text = currentScore.ToString();
+    }
 }

@@ -6,22 +6,46 @@ using Unity.Mathematics;
 using Unity.Transforms;
 
 
-public class AsteroidSystem : SystemBase
+public class GameManagerSystem : SystemBase
 {
     private float spawnerTime;
     private Random random = new Random(56);
     private int maxAsteroidsInGroups = 5;
-    private int asteroidsCountdown = 5;   
-        
+    private int asteroidsCountdown = 5;
+
+    private bool isPlayerThere = false;
     
     
     protected override void OnUpdate()
     {
-        AsteroidSpawner();
-        WatchMeExplode();
 
+        switch(GameManagerMono.instance.CurrentState)
+        {
+            case (GameManagerMono.GameState.Playing):
+
+                if (!isPlayerThere) InstantiatePlayer();
+                AsteroidSpawner();
+                WatchMeExplode();
+
+            break;
+
+            
+        }
+        
+        
         
 
+    }
+
+    private void InstantiatePlayer()
+    {
+        Entities.ForEach((ref PrefabManagerECS prefabManagerECS, in Entity e) =>
+        {
+            EntityManager.Instantiate(prefabManagerECS.shipPrefab);
+
+        }).WithStructuralChanges().WithoutBurst().Run();
+
+        isPlayerThere = true;
     }
 
     private void WatchMeExplode()
