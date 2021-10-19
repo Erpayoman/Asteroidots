@@ -7,8 +7,8 @@ using Unity.Transforms;
 using UnityEngine;
 public class PlayerSystem : SystemBase
 {
-    
-    
+    PrefabManagerECS prefabManager;
+
     protected override void OnUpdate()
     {
         var dt = Time.DeltaTime;
@@ -25,13 +25,20 @@ public class PlayerSystem : SystemBase
         Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 50);
         Vector3 hitPosVector = hit.point;
 
+        Entities.ForEach((ref PrefabManagerECS prefabManagerECS) =>
+        {
+            this.prefabManager = prefabManagerECS;
+
+        }).WithStructuralChanges().WithoutBurst().Run();
+
         Entities.ForEach((ref Movable mov, ref Translation translation, ref Rotation rotation, ref Player player) => 
         {
+          
 
             //Player movement 
 
             //mov.direction = new float3(x, 0, y);
-           
+
             if (x > 0) player.newX = math.clamp(player.newX + (dt * player.aceleration), 0f, 5f);
 
             if (x < 0) player.newX = math.clamp(player.newX - (dt * player.aceleration), -5f,0f);
@@ -63,7 +70,7 @@ public class PlayerSystem : SystemBase
 
         Entities.ForEach((in Player player, in Kill kill,in Translation translation) =>
         {
-            Entity explosion = EntityManager.Instantiate(player.explosionPrefab);
+            Entity explosion = EntityManager.Instantiate(prefabManager.playerExplosion);
             EntityManager.SetComponentData(explosion, new Translation { Value = translation.Value });
 
         }).WithStructuralChanges().Run();

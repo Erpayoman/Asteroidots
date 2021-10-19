@@ -6,8 +6,6 @@ using Unity.Mathematics;
 [GenerateAuthoringComponent]
 public struct Asteroid : IComponentData
 {
-    public Entity explosionPrefab;
-    public Entity asteroidPrefab2,asteroidPrefab1;
-    public int hitStatus;
+   public int hitStatus;
 
 }

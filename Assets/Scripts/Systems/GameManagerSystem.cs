@@ -14,12 +14,20 @@ public class GameManagerSystem : SystemBase
     private int asteroidsCountdown = 5;
 
     private bool isPlayerThere = false;
-        
-    
+
+    PrefabManagerECS prefabManager;
+
+
     protected override void OnUpdate()
     {
+        Entities.ForEach((ref PrefabManagerECS prefabManagerECS) =>
+        {
+            this.prefabManager = prefabManagerECS;
 
-        switch(GameManagerMono.instance.CurrentState)
+        }).WithStructuralChanges().WithoutBurst().Run();
+
+
+        switch (GameManagerMono.instance.CurrentState)
         {
             case (GameManagerMono.GameState.Playing):
 
@@ -54,7 +62,7 @@ public class GameManagerSystem : SystemBase
     {
         Entities.ForEach((ref Asteroid asteroid, ref Kill kill, ref Translation translation) =>
         {
-            Entity explosion = EntityManager.Instantiate(asteroid.explosionPrefab);
+            Entity explosion = EntityManager.Instantiate(prefabManager.asteroidExplosion);
             EntityManager.SetComponentData(explosion, new Translation { Value = translation.Value });
 
             int numberAsteroid = 2;
@@ -64,7 +72,7 @@ public class GameManagerSystem : SystemBase
                 case 3:
                     while(numberAsteroid > 0)
                     {
-                        Entity asteroidPrefab2 = EntityManager.Instantiate(asteroid.asteroidPrefab2);
+                        Entity asteroidPrefab2 = EntityManager.Instantiate(prefabManager.asteroidPrefab2);
                         EntityManager.SetComponentData(asteroidPrefab2, new Translation { Value = translation.Value });
                         //EntityManager.SetComponentData(asteroidPrefab2, new CompositeScale { Value = scale.Value / 2 });
                         EntityManager.SetComponentData(asteroidPrefab2, new Movable
@@ -83,7 +91,7 @@ public class GameManagerSystem : SystemBase
                 case 2:
                     while (numberAsteroid > 0)
                     {
-                        Entity asteroidPrefab1 = EntityManager.Instantiate(asteroid.asteroidPrefab1);
+                        Entity asteroidPrefab1 = EntityManager.Instantiate(prefabManager.asteroidPrefab1);
                         EntityManager.SetComponentData(asteroidPrefab1, new Translation { Value = translation.Value });
                         //EntityManager.SetComponentData(asteroidPrefab1, new CompositeScale { Value = scale.Value / 2 });
                         EntityManager.SetComponentData(asteroidPrefab1, new Movable
@@ -107,10 +115,10 @@ public class GameManagerSystem : SystemBase
         {
             spawnerTime = 1.5f;
 
-            Entities.ForEach((ref AsteroidManager asteroidManager) =>
+            Entities.ForEach((ref PrefabManagerECS prefabManager) =>
             {
 
-                Entity spawnedAsteroid = EntityManager.Instantiate(asteroidManager.asteroidPrefab3);
+                Entity spawnedAsteroid = EntityManager.Instantiate(prefabManager.asteroidPrefab3);
                 
 
                 asteroidsCountdown--;

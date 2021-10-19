@@ -16,42 +16,42 @@ public class ShootSystem : SystemBase
     {
 
         float dt = Time.DeltaTime;
-
-        if(prefabManager.Equals(null))
-        {
-            Entities.ForEach((ref PrefabManagerECS prefabMng, in Entity e) =>
+        Entities.ForEach((ref PrefabManagerECS prefabManagerECS) =>
             {
-                prefabManager = prefabMng;
+                this.prefabManager = prefabManagerECS;
 
             }).WithStructuralChanges().WithoutBurst().Run();
-        }
-        else
-        {
-            Entities.ForEach((in Shooter shooter, in Translation translation, in Rotation rotation) =>
-            {
-                shootTime += dt;
+        
+        
+         Entities.ForEach((in Shooter shooter, in Translation translation, in Rotation rotation) =>
+         {
+             shootTime += dt;
 
 
 
-                if (shootTime >= shooter.timeDelayShoot)
-                {
-                    if (Input.GetButton("Fire1"))
-                    {
-                        Entity laserBeam = EntityManager.Instantiate(prefabManager.laser);
-                        EntityManager.SetComponentData(laserBeam, new Translation { Value = translation.Value });
-                        EntityManager.SetComponentData(laserBeam, new Rotation { Value = rotation.Value });
-                        EntityManager.SetComponentData(laserBeam, new Laser { speed = shooter.laserSpeed });
+             if (shootTime >= shooter.timeDelayShoot)
+             {
+                 if (Input.GetButton("Fire1"))
+                 {
+                     Entity laserBeam = EntityManager.Instantiate(prefabManager.laser);
+                     EntityManager.SetComponentData(laserBeam, new Translation { Value = translation.Value });
+                     EntityManager.SetComponentData(laserBeam, new Rotation { Value = rotation.Value });
+                     EntityManager.SetComponentData(laserBeam, new Laser { speed = shooter.laserSpeed });
 
-                        AudioManager.instance.PlayFX("laser1", fxVolumen);
+                     AudioManager.instance.PlayFX("laser1", fxVolumen);
 
-                    }
-                    shootTime = 0f;
-                }
+                 }
+                 shootTime = 0f;
+             }
 
 
-            }).WithStructuralChanges().Run();
-        }
+         }).WithStructuralChanges().Run();
+
+        
     }
+        
+
+        
         
 
         
