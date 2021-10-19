@@ -7,6 +7,7 @@ using Unity.Mathematics;
 public struct PrefabManagerECS : IComponentData
 {
     public Entity shipPrefab;
+    public Entity laser;
     
     
 }

@@ -877,6 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipPrefab: {fileID: 8284220730830254175, guid: 10db6508d4da4f64298841eba30ef2c1, type: 3}
+  laser: {fileID: 1451412942897593511, guid: a7e0385bd501c5c4694ef00672124d3d, type: 3}
 --- !u!1 &884209876
 GameObject:
   m_ObjectHideFlags: 0

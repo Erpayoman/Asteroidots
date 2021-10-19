@@ -14,7 +14,7 @@ public class GameManagerSystem : SystemBase
     private int asteroidsCountdown = 5;
 
     private bool isPlayerThere = false;
-    
+        
     
     protected override void OnUpdate()
     {
